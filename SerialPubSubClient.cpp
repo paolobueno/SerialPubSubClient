@@ -1,4 +1,7 @@
 #include "SerialPubSubClient.h"
+PubSubClient::PubSubClient(MQTT_CALLBACK_SIGNATURE) {
+  setCallback(callback);
+}
 PubSubClient::PubSubClient(IPAddress ip, uint16_t port, MQTT_CALLBACK_SIGNATURE, Client& client) {
   setCallback(callback);
 }
@@ -32,7 +35,7 @@ boolean PubSubClient::publish(const char* topic, const char* payload, boolean re
 }
 
 boolean PubSubClient::subscribe(const char* topic, uint8_t qos) {
-  Serial.print("Subscribing to topic: "); Serial.print(topic); Serial.print("with QoS "); Serial.println(qos);
+  Serial.print("Subscribing to topic: "); Serial.print(topic); Serial.print(" with QoS "); Serial.println(qos);
   return true;
 }
 
@@ -48,7 +51,7 @@ boolean PubSubClient::loop() {
       Serial.print("Receiving message on topic "); Serial.println(topic);
       Serial.print("payload: "); Serial.println(payload);
       if (this->callback) {
-        callback(topic.c_str(), payload.c_str(), payload.length());
+        this->callback(topic.c_str(), payload.c_str(), payload.length());
       }
     }
   }

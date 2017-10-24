@@ -11,6 +11,7 @@ private:
   MQTT_CALLBACK_SIGNATURE;
 public:
   PubSubClient();
+  PubSubClient(MQTT_CALLBACK_SIGNATURE);
   PubSubClient(IPAddress, uint16_t, MQTT_CALLBACK_SIGNATURE,Client& client);
   PubSubClient(uint8_t *, uint16_t, MQTT_CALLBACK_SIGNATURE,Client& client);
   PubSubClient(uint8_t *, uint16_t, MQTT_CALLBACK_SIGNATURE,Client& client, Stream&);
