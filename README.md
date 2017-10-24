@@ -4,7 +4,7 @@ Biblioteca para testar código para a biblioteca [PubSubClient](https://github.c
 
 ## Instalação
 
-Clone este repositório para sua pasta de **Bibliotecas** (`{usuário}\Documentos\Arduino\libraries\`) no windows:
+Clone este repositório para sua pasta de **Bibliotecas** (No Windows o padrão é`{usuário}\Documentos\Arduino\libraries\`):
 
 ```bash
 cd ~/Arduino/libraries/
